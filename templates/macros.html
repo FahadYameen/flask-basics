@@ -1,0 +1,47 @@
+{% macro render_dict(dictionary) %}
+
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+
+        <th>
+            Value
+        </th>
+        <th>
+            Comments
+        </th>
+    </tr>
+
+    {% for key,value in dictionary.items() %}
+
+    <tr>
+        <td>
+            {{key}}
+        </td>
+        <td>
+            {{value}}
+        </td>
+
+
+
+        <td>
+            {% if value < 2 %}
+
+            short
+            {% elif value > 2 and value < 4 %}
+
+            medium
+
+            {% else %}
+
+            long
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endmacro %}

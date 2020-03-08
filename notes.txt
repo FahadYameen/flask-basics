@@ -1,0 +1,30 @@
+To create Table:
+create class that inherits db.Model with attributes and instances, __repr__ method like class Book(db.Model)
+excecute db.create_all() to create new tables
+
+To insert records:
+create instance of the class for that table
+db.session.add(<instance>)   or db.session.add_all(<list_of_instances>)
+db.session.commit()
+
+To retreive data:
+<class>.query.all()
+<class>.query.first()
+<class>.query.filter_by(<any condition>).all()
+<class>.query.order_by(Book.<attribute_name>).al()
+<class>.query.limit(5).all()
+<class>.query.get(<pk>) // for primary key
+
+
+Update the record:
+query the record instance
+override the value
+commit to db
+
+Delete the record:
+query the record instance
+db.session.delete(instance)
+db.session.commit()
+
+delete multiple records:
+Book.query.filter_by(pub_id=6).delete()
